@@ -87,7 +87,6 @@ echo "Opening release branch $release_branch_name"
 
 # rewind one commit + cut release
 git reset --hard HEAD~1
-git checkout -b $release_branch_name
 
 # set -rc version
 release_candidate_version="$release_branch_version.0-rc"
@@ -99,4 +98,4 @@ git add npm-shrinkwrap.json
 git commit -m "Bump version number to $release_candidate_version"
 
 # create the branch
-git push -u $remote HEAD
+git push -u $remote HEAD:$release_branch_name
