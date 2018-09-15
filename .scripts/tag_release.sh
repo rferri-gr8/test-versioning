@@ -75,6 +75,7 @@ release_branch_current_version=$(cat package.json \
 echo "Current release branch version: $release_branch_current_version"
 
 tag_version=$(echo $release_branch_current_version | sed 's/-.*//')
+tag_version="v$tag_version"
 echo "Release tag version: $tag_version"
 
 # bump to the release tag version
@@ -83,7 +84,7 @@ npm --no-git-tag-version version ${tag_version#v}
 # commit the version bump
 git add package.json
 git add npm-shrinkwrap.json
-git commit -m "Bump version number to $release_branch_new_version"
+git commit -m "Bump version number to $tag_version"
 git push $remote HEAD:refs/heads/$release_branch_name
 
 git tag $tag_version $remote/$release_branch_name > /dev/null
