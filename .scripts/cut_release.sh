@@ -98,4 +98,4 @@ git add npm-shrinkwrap.json
 git commit -m "Bump version number to $release_candidate_version"
 
 # create the branch
-git push -u $remote HEAD:$release_branch_name
+git push -u $remote HEAD:refs/heads/$release_branch_name
