@@ -84,7 +84,7 @@ npm --no-git-tag-version version ${tag_version#v}
 git add package.json
 git add npm-shrinkwrap.json
 git commit -m "Bump version number to $release_branch_new_version"
-git push $remote HEAD:$release_branch_name
+git push $remote HEAD:refs/heads/$release_branch_name
 
 git tag $tag_version $remote/$release_branch_name > /dev/null
 
@@ -104,5 +104,5 @@ npm --no-git-tag-version version ${release_branch_new_version#v}
 git add package.json
 git add npm-shrinkwrap.json
 git commit -m "Bump version number to $release_branch_new_version"
-git push $remote HEAD:$release_branch_name
+git push $remote HEAD:refs/heads/$release_branch_name
 
